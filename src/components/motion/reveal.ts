@@ -80,7 +80,20 @@ export function setupReveal(root: ParentNode = document): () => void {
   let decided = false;
   let canReveal = false;
 
-  const heroTimer = window.setTimeout(() => {
+  // Every window.setTimeout id scheduled in this function is tracked here so
+  // the returned cleanup can clear all of them — a stale timeout firing after
+  // an astro:page-load teardown would otherwise mutate torn-down DOM nodes.
+  const pendingTimeouts = new Set<ReturnType<typeof window.setTimeout>>();
+  const schedule = (fn: () => void, delay: number) => {
+    const id = window.setTimeout(() => {
+      pendingTimeouts.delete(id);
+      fn();
+    }, delay);
+    pendingTimeouts.add(id);
+    return id;
+  };
+
+  schedule(() => {
     canReveal = true;
   }, heroDelayMs);
 
@@ -97,7 +110,7 @@ export function setupReveal(root: ParentNode = document): () => void {
   };
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  const showAllStaggered = () => nodes.forEach((n, i) => window.setTimeout(() => revealIfPending(n), i * 140));
+  const showAllStaggered = () => nodes.forEach((n, i) => schedule(() => revealIfPending(n), i * 140));
 
   const io = new IntersectionObserver(
     (entries) => {
@@ -106,13 +119,13 @@ export function setupReveal(root: ParentNode = document): () => void {
         const offscreen = entries.filter((e) => !e.isIntersecting);
         if (!offscreen.length) {
           io.disconnect();
-          window.setTimeout(showAllStaggered, heroDelayMs);
+          schedule(showAllStaggered, heroDelayMs);
           return;
         }
         entries.forEach((e) => {
           if (!e.isIntersecting) return;
           const delay = e.target === nodes[0] ? heroDelayMs : 0;
-          window.setTimeout(() => revealIfPending(e.target as HTMLElement), delay);
+          schedule(() => revealIfPending(e.target as HTMLElement), delay);
           io.unobserve(e.target);
         });
         return;
@@ -128,7 +141,7 @@ export function setupReveal(root: ParentNode = document): () => void {
   );
   nodes.forEach((el) => io.observe(el));
 
-  const fallbackTimer = window.setTimeout(() => {
+  schedule(() => {
     if (!decided) {
       decided = true;
       io.disconnect();
@@ -137,8 +150,8 @@ export function setupReveal(root: ParentNode = document): () => void {
   }, FALLBACK_MS);
 
   return () => {
-    window.clearTimeout(heroTimer);
-    window.clearTimeout(fallbackTimer);
+    pendingTimeouts.forEach((id) => window.clearTimeout(id));
+    pendingTimeouts.clear();
     window.removeEventListener('scroll', onScroll);
     io.disconnect();
   };
