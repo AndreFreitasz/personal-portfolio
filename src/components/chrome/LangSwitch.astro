@@ -1,0 +1,20 @@
+---
+import type { Locale } from '../../locales/locales';
+import { getAlternateUrl, useTranslations } from '../../locales/utils';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const target: Locale = locale === 'pt' ? 'en' : 'pt';
+const href = getAlternateUrl(Astro.url.pathname, target);
+---
+
+<a
+  data-magnetic
+  href={href}
+  class="ml-2 border border-border-hover px-3 py-[9px] font-mono text-[11px] tracking-[.14em] text-paper transition-colors hover:border-volt hover:text-volt"
+>
+  {t.langLabel}
+</a>

@@ -1,0 +1,54 @@
+---
+import type { Locale } from '../../locales/locales';
+import { useTranslations } from '../../locales/utils';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<header class="sticky top-0 z-[100] border-b border-border bg-ink/86 backdrop-blur-md">
+  <div class="mx-auto flex max-w-[1180px] items-center justify-between gap-[18px] px-7 py-4">
+    <a href="#top" aria-label="André Freitas" class="flex items-center gap-3">
+      <span
+        class="flex h-[34px] w-[34px] items-center justify-center bg-volt font-display text-[17px] tracking-[-.07em] text-ink"
+      >
+        AF
+      </span>
+    </a>
+    <nav class="flex flex-wrap items-center justify-end gap-1">
+      <a
+        data-magnetic
+        href="#sobre"
+        class="px-3 py-[10px] font-mono text-[11px] uppercase tracking-[.2em] text-muted-body transition-colors hover:text-volt"
+      >
+        {t.nav1}
+      </a>
+      <a
+        data-magnetic
+        href="#experiencia"
+        class="px-3 py-[10px] font-mono text-[11px] uppercase tracking-[.2em] text-muted-body transition-colors hover:text-volt"
+      >
+        {t.nav2}
+      </a>
+      <a
+        data-magnetic
+        href="#projetos"
+        class="px-3 py-[10px] font-mono text-[11px] uppercase tracking-[.2em] text-muted-body transition-colors hover:text-volt"
+      >
+        {t.nav3}
+      </a>
+      <a
+        data-magnetic
+        href="#contato"
+        class="px-3 py-[10px] font-mono text-[11px] uppercase tracking-[.2em] text-muted-body transition-colors hover:text-volt"
+      >
+        {t.nav5}
+      </a>
+      <LangSwitch locale={locale} />
+    </nav>
+  </div>
+</header>
