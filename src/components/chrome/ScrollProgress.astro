@@ -1,0 +1,19 @@
+---
+---
+
+<div data-progress class="fixed left-0 top-0 z-[110] h-[2px] w-0 bg-volt"></div>
+<script>
+  function update() {
+    const bar = document.querySelector<HTMLElement>('[data-progress]');
+    if (!bar) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+  }
+  // Este nó tem transition:persist: o script só roda uma vez de fato
+  // (o DOM sobrevive às navegações), por isso não precisa re-bindar
+  // em astro:page-load como os utilitários de motion/.
+  document.addEventListener('astro:page-load', () => {
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+  });
+</script>
