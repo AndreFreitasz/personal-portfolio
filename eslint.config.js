@@ -7,6 +7,14 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...astroPlugin.configs.recommended,
   {
-    ignores: ['dist/**', '.astro/**', 'design-reference/**'],
+    ignores: ['dist/**', '.astro/**', '.vercel/**', 'design-reference/**'],
+  },
+  {
+    // env.d.ts's triple-slash references are Astro's own standard TS setup —
+    // not a lint violation to fix in that file.
+    files: ['**/*.d.ts'],
+    rules: {
+      '@typescript-eslint/triple-slash-reference': 'off',
+    },
   },
 );
