@@ -1,16 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/chrome/Header.astro';
-import Hero from '../components/sections/Hero.astro';
-import About from '../components/sections/About.astro';
-import Experience from '../components/sections/Experience.astro';
-import Projects from '../components/sections/Projects.astro';
-import StackMarquee from '../components/sections/StackMarquee.astro';
-import Contact from '../components/sections/Contact.astro';
-import { useTranslations } from '../locales/utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/chrome/Header.astro';
+import Hero from '../../components/sections/Hero.astro';
+import About from '../../components/sections/About.astro';
+import Experience from '../../components/sections/Experience.astro';
+import Projects from '../../components/sections/Projects.astro';
+import StackMarquee from '../../components/sections/StackMarquee.astro';
+import Contact from '../../components/sections/Contact.astro';
+import { useTranslations } from '../../locales/utils';
 
-const locale = 'pt' as const;
+const locale = 'en' as const;
 const t = useTranslations(locale);
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 ---

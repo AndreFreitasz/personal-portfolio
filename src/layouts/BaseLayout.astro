@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import AmbientCanvas from '../components/chrome/AmbientCanvas';
+import CustomCursor from '../components/chrome/CustomCursor';
+import ScrollProgress from '../components/chrome/ScrollProgress.astro';
+import IntroSplash from '../components/sections/IntroSplash';
+import type { Locale } from '../locales/locales';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+const { locale, title, description } = Astro.props;
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.jpg" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <ClientRouter />
+  </head>
+  <body class="m-0 bg-ink font-body text-paper antialiased">
+    <IntroSplash client:load transition:persist="intro" />
+    <AmbientCanvas client:load transition:persist="ambient-canvas" />
+    <div
+      class="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(211,242,78,.05),transparent_70%)]"
+    >
+    </div>
+    <ScrollProgress transition:persist="scroll-progress" />
+    <CustomCursor client:load transition:persist="custom-cursor" />
+    <slot />
+    <script>
+      import '../components/motion/bootstrap';
+    </script>
+  </body>
+</html>
