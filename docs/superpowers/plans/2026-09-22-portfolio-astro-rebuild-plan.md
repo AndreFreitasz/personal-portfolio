@@ -1393,12 +1393,14 @@ title:
   pt: SaveMoney
   en: SaveMoney
 description:
-  pt: Gestão de finanças pessoais: dashboard, geração de relatórios e job automático de gastos recorrentes.
-  en: Personal finance manager: dashboard, report generation and an automated recurring-expenses job.
+  pt: "Gestão de finanças pessoais: dashboard, geração de relatórios e job automático de gastos recorrentes."
+  en: "Personal finance manager: dashboard, report generation and an automated recurring-expenses job."
 stack: [React, NestJS, TypeORM, PostgreSQL, JWT, Tailwind]
 link: https://personal-management-jade.vercel.app
 ---
 ```
+
+(Os valores de `description` precisam de aspas — sem elas, o `: ` depois de "pessoais"/"manager" quebra o parser YAML, que interpretaria como um novo mapeamento aninhado.)
 
 `src/content/projects/guysmovies.mdx`:
 
@@ -1409,8 +1411,8 @@ title:
   pt: GuysMovies
   en: GuysMovies
 description:
-  pt: Catálogo de filmes e séries com comunidade: usuários compartilham experiências e avaliações, com dados do TMDB.
-  en: Movie and series catalog with a community layer, users share reviews and experiences, powered by TMDB data.
+  pt: "Catálogo de filmes e séries com comunidade: usuários compartilham experiências e avaliações, com dados do TMDB."
+  en: "Movie and series catalog with a community layer: users share reviews and experiences, powered by TMDB data."
 stack: [React, NestJS, TypeORM, PostgreSQL, JWT, "TMDB API"]
 link: https://guys-movies-frontend.vercel.app/
 ---
