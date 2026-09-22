@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html { background: #0E0D0C; }
+  body { margin: 0; background: #0E0D0C; color: #F2EFE9; font-family: Archivo, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #D3F24E; text-decoration: none; }
+  a:hover { color: #FF9C7B; }
+  @keyframes afTile { 0% { transform: scale(.55) rotate(-8deg); opacity: 0 } 55% { transform: scale(1) rotate(0deg); opacity: 1 } 100% { transform: scale(1) rotate(0deg); opacity: 1 } }
+  @keyframes afLeft { 0% { transform: translateX(-70%); opacity: 0 } 40% { transform: translateX(0); opacity: 1 } 100% { transform: translateX(0); opacity: 1 } }
+  @keyframes afRight { 0% { transform: translateX(70%); opacity: 0 } 40% { transform: translateX(0); opacity: 1 } 100% { transform: translateX(0); opacity: 1 } }
+  @keyframes afRule { 0%, 30% { transform: scaleX(0) } 70%, 100% { transform: scaleX(1) } }
+  @keyframes afWipe { 0%, 68% { transform: translateY(0) } 100% { transform: translateY(-101%) } }
+  @keyframes afFadeUp { 0% { transform: translateY(18px); opacity: 0 } 100% { transform: translateY(0); opacity: 1 } }
+</style>
+</helmet>
+
+<sc-if value="{{ intro }}" hint-placeholder-val="{{ false }}">
+  <div style="position: fixed; inset: 0; z-index: 90; background: #0E0D0C; display: grid; place-items: center; animation: afWipe 2.3s cubic-bezier(.76,0,.24,1) forwards;">
+    <div style="display: grid; gap: 22px; justify-items: center;">
+      <div style="width: 132px; height: 132px; background: #D3F24E; color: #0E0D0C; display: flex; align-items: center; justify-content: center; overflow: hidden; animation: afTile 1.5s cubic-bezier(.16,1,.3,1) both;">
+        <span style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: 68px; line-height: .8; letter-spacing: -.07em; animation: afLeft 1.5s cubic-bezier(.16,1,.3,1) both;">A</span>
+        <span style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: 68px; line-height: .8; letter-spacing: -.07em; animation: afRight 1.5s cubic-bezier(.16,1,.3,1) both;">F</span>
+      </div>
+      <div style="width: 180px; height: 2px; background: #3A3733; transform-origin: left; animation: afRule 1.8s cubic-bezier(.76,0,.24,1) both;"></div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; color: #8C877E; animation: afFadeUp .9s .5s cubic-bezier(.16,1,.3,1) both;">André Freitas</div>
+    </div>
+  </div>
+</sc-if>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 28px 120px;">
+
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; border-bottom: 1px solid #221F1C; flex-wrap: wrap;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="width: 38px; height: 38px; background: #D3F24E; color: #0E0D0C; display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', Helvetica, sans-serif; font-size: 19px; letter-spacing: -.07em;">AF</div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #8C877E;">Identidade visual · v1</span>
+    </div>
+    <button onClick="{{ replay }}" style="cursor: pointer; background: transparent; border: 1px solid #3A3733; color: #F2EFE9; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; padding: 11px 18px;" style-hover="border-color: #D3F24E; color: #D3F24E;">Rever abertura</button>
+  </header>
+
+  <section data-reveal="1" style="padding: 76px 0 84px; border-bottom: 1px solid #221F1C;">
+    <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; color: #D3F24E; margin-bottom: 26px;">00 — Base</div>
+    <h1 style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(46px, 9vw, 116px); line-height: .88; letter-spacing: -.045em; margin: 0 0 28px; text-wrap: balance;">MÃO NA<br>MASSA.</h1>
+    <p style="max-width: 620px; margin: 0; font-size: clamp(17px, 2vw, 21px); line-height: 1.55; color: #B9B4AA; text-wrap: pretty;">André Freitas, engenheiro de software. A identidade traduz trabalho constante: tipografia densa, contraste alto e um acento elétrico usado com disciplina — nunca como decoração.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #8C877E; border: 1px solid #2A2724; padding: 9px 14px;">Dedicado</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #8C877E; border: 1px solid #2A2724; padding: 9px 14px;">Focado</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #8C877E; border: 1px solid #2A2724; padding: 9px 14px;">Construindo sempre</span>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="padding: 84px 0; border-bottom: 1px solid #221F1C;">
+    <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 40px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; color: #D3F24E;">01</div>
+      <h2 style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(30px, 5vw, 56px); line-height: 1; letter-spacing: -.035em; margin: 0;">Paleta</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 2px; border: 1px solid #221F1C;">
+      <div style="background: #0E0D0C; padding: 28px 22px; min-height: 220px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; border: 1px solid #221F1C;">
+        <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; color: #F2EFE9;">Tinta</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C877E;">#0E0D0C</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9A958C;">oklch(.16 .004 60) · fundo</div>
+      </div>
+      <div style="background: #1B1917; padding: 28px 22px; min-height: 220px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; border: 1px solid #221F1C;">
+        <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; color: #F2EFE9;">Grafite</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A958C;">#1B1917</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9A958C;">superfícies e cards</div>
+      </div>
+      <div style="background: #D3F24E; padding: 28px 22px; min-height: 220px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; border: 1px solid #221F1C;">
+        <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; color: #0E0D0C;">Volt</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #2E3A0C;">#D3F24E</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3F4F14;">oklch(.92 .18 118) · acento 1</div>
+      </div>
+      <div style="background: #FF9C7B; padding: 28px 22px; min-height: 220px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; border: 1px solid #221F1C;">
+        <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; color: #2A0F06;">Brasa</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #4A1A0C;">#FF9C7B</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #5A2411;">oklch(.79 .12 38) · acento 2</div>
+      </div>
+      <div style="background: #F2EFE9; padding: 28px 22px; min-height: 220px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; border: 1px solid #221F1C;">
+        <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; color: #0E0D0C;">Papel</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #4A473F;">#F2EFE9</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9A958C;">texto e modo claro</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9B4AA;"><strong style="color: #F2EFE9;">Proporção 70/20/8/2.</strong> Tinta domina, grafite separa, Volt marca o que importa, Brasa aparece só em estados e detalhes.</p>
+      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9B4AA;"><strong style="color: #F2EFE9;">Nunca</strong> use Volt em texto corrido nem gradiente entre os dois acentos. Volt sobre tinta: contraste 13:1.</p>
+      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9B4AA;"><strong style="color: #F2EFE9;">Cinzas de apoio:</strong> #2A2724 (bordas), #8C877E (rótulos), #B9B4AA (texto secundário).</p>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="padding: 84px 0; border-bottom: 1px solid #221F1C;">
+    <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 40px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; color: #D3F24E;">02</div>
+      <h2 style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(30px, 5vw, 56px); line-height: 1; letter-spacing: -.035em; margin: 0;">Tipografia</h2>
+    </div>
+    <div style="display: grid; gap: 2px;">
+      <div style="background: #1B1917; padding: 34px 28px; display: grid; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #8C877E;"><span>Display — Archivo Black</span><span>clamp(46px, 9vw, 116px) · ls -.045em</span></div>
+        <div style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(38px, 7vw, 80px); line-height: .9; letter-spacing: -.045em;">Construo coisas</div>
+      </div>
+      <div style="background: #1B1917; padding: 34px 28px; display: grid; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #8C877E;"><span>Texto — Archivo 400/600</span><span>17–21px · lh 1.55</span></div>
+        <div style="font-size: 20px; line-height: 1.55; color: #E4E0D8; max-width: 640px;">Engenharia de software com foco em produto: <strong style="font-weight: 600;">interfaces rápidas</strong>, código legível e entrega constante. ABCDEFGHIJKLM abcdefghijklm 0123456789</div>
+      </div>
+      <div style="background: #1B1917; padding: 34px 28px; display: grid; gap: 14px;">
+        <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #8C877E;"><span>Rótulo — JetBrains Mono</span><span>11px · ls .30em · caixa alta</span></div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: #D3F24E;">01 — Projetos selecionados</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="padding: 84px 0; border-bottom: 1px solid #221F1C;">
+    <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 40px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; color: #D3F24E;">03</div>
+      <h2 style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(30px, 5vw, 56px); line-height: 1; letter-spacing: -.035em; margin: 0;">Logo · AF</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2px;">
+      <div style="background: #1B1917; aspect-ratio: 1; display: grid; place-items: center; position: relative;">
+        <div style="width: 46%; aspect-ratio: 1; background: #D3F24E; color: #0E0D0C; display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(30px, 5.5vw, 52px); letter-spacing: -.07em;">AF</div>
+        <div style="position: absolute; bottom: 16px; left: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #9A958C;">Sólido · principal</div>
+      </div>
+      <div style="background: #1B1917; aspect-ratio: 1; display: grid; place-items: center; position: relative;">
+        <div style="width: 46%; aspect-ratio: 1; border: 3px solid #D3F24E; color: #D3F24E; display: flex; align-items: center; justify-content: center; font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(28px, 5.2vw, 48px); letter-spacing: -.07em;">AF</div>
+        <div style="position: absolute; bottom: 16px; left: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #9A958C;">Contorno · fundos densos</div>
+      </div>
+      <div style="background: #D3F24E; aspect-ratio: 1; display: grid; place-items: center; position: relative;">
+        <div style="font-family: 'Archivo Black', Helvetica, sans-serif; color: #0E0D0C; font-size: clamp(34px, 6vw, 58px); line-height: .82; letter-spacing: -.07em; text-align: center;">A<br>F</div>
+        <div style="position: absolute; bottom: 16px; left: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #46550F;">Empilhado · favicon/selo</div>
+      </div>
+      <div style="background: #F2EFE9; aspect-ratio: 1; display: grid; place-items: center; position: relative; padding: 24px;">
+        <div style="display: grid; gap: 10px; justify-items: center;">
+          <div style="font-family: 'Archivo Black', Helvetica, sans-serif; color: #0E0D0C; font-size: clamp(22px, 3.4vw, 34px); line-height: .9; letter-spacing: -.045em; text-align: center;">ANDRÉ<br>FREITAS</div>
+          <div style="width: 54px; height: 3px; background: #0E0D0C;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: #4A473F;">Software engineer</div>
+        </div>
+        <div style="position: absolute; bottom: 16px; left: 18px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #8C877E;">Lockup vertical · modo claro</div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 30px;">
+      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9B4AA;"><strong style="color: #F2EFE9;">Área de respiro:</strong> metade da altura do quadrado em todos os lados. Nada invade.</p>
+      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9B4AA;"><strong style="color: #F2EFE9;">Mínimo:</strong> 24px de lado na tela, 8mm em impressão. Abaixo disso, use a versão empilhada.</p>
+      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #B9B4AA;"><strong style="color: #F2EFE9;">Não faça:</strong> girar, aplicar sombra, esticar as letras ou trocar o Volt por outro tom.</p>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="padding: 84px 0; border-bottom: 1px solid #221F1C;">
+    <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 14px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; color: #D3F24E;">04</div>
+      <h2 style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(30px, 5vw, 56px); line-height: 1; letter-spacing: -.035em; margin: 0;">Ícones sociais</h2>
+    </div>
+    <p style="max-width: 620px; margin: 0 0 36px; font-size: 15px; line-height: 1.6; color: #B9B4AA;">Ícones de traço uniforme (stroke 1.8px, cantos arredondados, grade 24px) dentro do quadrado do sistema — mesmo peso visual do monograma. Duas redes, sem ruído.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
+      <a href="https://www.instagram.com/andre.freitaszz" target="_blank" rel="noopener" aria-label="Instagram" style="width: 62px; height: 62px; border: 1px solid #3A3733; color: #F2EFE9; display: grid; place-items: center; transition: transform .22s cubic-bezier(.16,1,.3,1), color .22s, border-color .22s, background .22s;" style-hover="background: #D3F24E; color: #0E0D0C; border-color: #D3F24E; transform: translateY(-4px);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/andré-freitas-462940200" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 62px; height: 62px; border: 1px solid #3A3733; color: #F2EFE9; display: grid; place-items: center; transition: transform .22s cubic-bezier(.16,1,.3,1), color .22s, border-color .22s, background .22s;" style-hover="background: #D3F24E; color: #0E0D0C; border-color: #D3F24E; transform: translateY(-4px);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+          <line x1="8" y1="11" x2="8" y2="17"></line>
+          <circle cx="8" cy="7.6" r="1.1" fill="currentColor" stroke="none"></circle>
+          <path d="M12 17v-3.4a2.6 2.6 0 0 1 5.2 0V17"></path>
+        </svg>
+      </a>
+      <a href="#" style="height: 62px; padding: 0 22px; background: #D3F24E; border: 1px solid #D3F24E; color: #0E0D0C; display: grid; place-items: center; font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; transition: transform .22s cubic-bezier(.16,1,.3,1), background .22s;" style-hover="background: #FF9C7B; border-color: #FF9C7B; transform: translateY(-4px);">Currículo</a>
+    </div>
+    <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; background: #F2EFE9; padding: 26px; align-items: center;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: #3A3733; margin-right: 8px;">Modo claro</span>
+      <a href="https://www.instagram.com/andre.freitaszz" target="_blank" rel="noopener" aria-label="Instagram" style="width: 54px; height: 54px; border: 1px solid #0E0D0C; color: #0E0D0C; display: grid; place-items: center; transition: background .22s, color .22s;" style-hover="background: #0E0D0C; color: #D3F24E;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/andré-freitas-462940200" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 54px; height: 54px; border: 1px solid #0E0D0C; color: #0E0D0C; display: grid; place-items: center; transition: background .22s, color .22s;" style-hover="background: #0E0D0C; color: #D3F24E;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="3"></rect>
+          <line x1="8" y1="11" x2="8" y2="17"></line>
+          <circle cx="8" cy="7.6" r="1.1" fill="currentColor" stroke="none"></circle>
+          <path d="M12 17v-3.4a2.6 2.6 0 0 1 5.2 0V17"></path>
+        </svg>
+      </a>
+    </div>
+    <div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 28px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #9A958C;">
+      <span>instagram.com/andre.freitaszz</span>
+      <span>linkedin.com/in/andré-freitas-462940200</span>
+    </div>
+  </section>
+
+  <section data-reveal="1" style="padding: 84px 0;">
+    <div style="display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 40px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; color: #D3F24E;">05</div>
+      <h2 style="font-family: 'Archivo Black', Helvetica, sans-serif; font-size: clamp(30px, 5vw, 56px); line-height: 1; letter-spacing: -.035em; margin: 0;">Foto</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+      <figure style="margin: 0; display: grid; gap: 14px;">
+        <div style="position: relative; aspect-ratio: 4/5; background: #0E0D0C; overflow: hidden;">
+          <img src="assets/andre.jpeg" alt="André Freitas" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.12) brightness(.95);">
+          <div style="position: absolute; inset: 0; background: #D3F24E; mix-blend-mode: color; opacity: .82; pointer-events: none;"></div>
+          <div style="position: absolute; inset: 0; background: #0E0D0C; mix-blend-mode: multiply; opacity: .18; pointer-events: none;"></div>
+        </div>
+        <figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #8C877E;">Duotone Volt · hero e sobre</figcaption>
+      </figure>
+      <figure style="margin: 0; display: grid; gap: 14px;">
+        <div style="position: relative; aspect-ratio: 4/5;">
+          <div style="position: absolute; left: 14px; top: 14px; right: -14px; bottom: -14px; background: #D3F24E;"></div>
+          <div style="position: absolute; inset: 0; overflow: hidden; background: #1B1917;">
+            <img src="assets/andre.jpeg" alt="André Freitas" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.3);">
+          </div>
+        </div>
+        <figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #8C877E; padding-top: 14px;">Bloco deslocado · cartão de contato</figcaption>
+      </figure>
+      <figure style="margin: 0; display: grid; gap: 14px;">
+        <div style="position: relative; aspect-ratio: 4/5; overflow: hidden; background: #1B1917; border: 1px solid #3A3733;">
+          <img src="assets/andre.jpeg" alt="André Freitas" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05) brightness(1.02);">
+          <div style="position: absolute; inset: 0; background: #FF9C7B; mix-blend-mode: color; opacity: .5; pointer-events: none;"></div>
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 18px; background: linear-gradient(to top, rgba(14,13,12,.92), rgba(14,13,12,0)); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #F2EFE9;">André Freitas</div>
+        </div>
+        <figcaption style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #8C877E;">Brasa + legenda · perfis sociais</figcaption>
+      </figure>
+    </div>
+    <p style="max-width: 720px; margin: 30px 0 0; font-size: 15px; line-height: 1.6; color: #B9B4AA;">Regra única: a foto nunca aparece em cor natural. Sempre dessaturada com um dos dois acentos por cima, recorte 4:5 e olhar acima do centro. Isso mantém o retrato coerente com o resto do sistema em qualquer plataforma.</p>
+  </section>
+
+  <footer style="border-top: 1px solid #221F1C; padding: 34px 0 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #9A958C;">
+    <span>André Freitas · identidade visual</span>
+    <span>Etapa 1 de 3 — próximo: layout do portfólio</span>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;introEnabled&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Abertura&quot;},&quot;introDuration&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2400,&quot;min&quot;:1200,&quot;max&quot;:4000,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Abertura&quot;},&quot;revealOnScroll&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Movimento&quot;}}">
+class Component extends DCLogic {
+  state = { intro: true, key: 0 };
+
+  get dur() { return this.props.introDuration ?? 2400; }
+
+  componentDidMount() {
+    if (this.props.introEnabled === false) this.setState({ intro: false });
+    else this.timer = setTimeout(() => this.setState({ intro: false }), this.dur);
+    if (this.props.revealOnScroll !== false) this.setupReveal();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+    if (this.io) this.io.disconnect();
+  }
+
+  setupReveal() {
+    const nodes = Array.from(document.querySelectorAll('[data-reveal]'));
+    const show = (el) => {
+      el.style.transition = 'opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    };
+    if (!('IntersectionObserver' in window)) { nodes.forEach(show); return; }
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { show(e.target); this.io.unobserve(e.target); }
+      });
+    }, { rootMargin: '-8% 0px -12% 0px' });
+    nodes.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.9) { show(el); return; }
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      this.io.observe(el);
+    });
+    setTimeout(() => nodes.forEach(show), 6000);
+  }
+
+  renderVals() {
+    return {
+      intro: this.state.intro,
+      replay: () => {
+        clearTimeout(this.timer);
+        this.setState({ intro: false }, () => {
+          this.setState({ intro: true });
+          this.timer = setTimeout(() => this.setState({ intro: false }), this.dur);
+        });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
