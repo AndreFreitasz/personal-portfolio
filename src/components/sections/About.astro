@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import andre from '../../assets/andre.jpg';
+import type { Locale } from '../../locales/locales';
+import { useTranslations } from '../../locales/utils';
+import SectionLabel from '../ui/SectionLabel.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section id="sobre" data-reveal class="border-t border-border py-24">
+  <SectionLabel index="01" title={t.aboutTitle} />
+  <div class="grid items-start gap-11 [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))]">
+    <div class="grid gap-5">
+      <p data-anim="left" class="m-0 text-lg leading-[1.6] text-muted-bright [text-wrap:pretty]" set:html={t.about1} />
+      <p data-anim="left" class="m-0 text-base leading-[1.65] text-muted-body [text-wrap:pretty]" set:html={t.about2} />
+    </div>
+    <div data-anim="right" class="photo-frame w-full max-w-[420px] justify-self-end">
+      <div data-parallax="0.06" class="photo-duotone relative aspect-[4/5] w-full overflow-hidden bg-ink">
+        <Image
+          src={andre}
+          alt="André Freitas"
+          class="h-full w-full object-cover"
+          widths={[420, 840]}
+          sizes="(min-width: 760px) 420px, 100vw"
+        />
+      </div>
+    </div>
+  </div>
+</section>

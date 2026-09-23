@@ -1,0 +1,16 @@
+---
+interface Props {
+  index: string;
+  title: string;
+}
+const { index, title } = Astro.props;
+---
+
+<div class="mb-11 flex flex-wrap items-baseline gap-[18px]">
+  <div data-anim="left" class="font-mono text-[11px] uppercase tracking-[.34em] text-volt">
+    {index}
+  </div>
+  <h2 data-line class="m-0 overflow-hidden font-display text-[clamp(30px,5vw,56px)] leading-none tracking-[-.035em]">
+    <span class="block">{title}</span>
+  </h2>
+</div>

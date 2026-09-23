@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import type { Locale } from '../../locales/locales';
+import { useTranslations } from '../../locales/utils';
+import Tag from '../ui/Tag.astro';
+
+interface Props {
+  locale: Locale;
+  project: CollectionEntry<'projects'>;
+  number: string;
+}
+const { locale, project, number } = Astro.props;
+const { data } = project;
+const t = useTranslations(locale);
+---
+
+<article data-anim="auto" class="grid items-center gap-9 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))]">
+  <a
+    data-magnetic
+    href={data.link}
+    target="_blank"
+    rel="noopener"
+    class="relative block aspect-[16/10] overflow-hidden border border-border-strong bg-graphite transition-colors hover:border-volt"
+  >
+    {
+      data.image ? (
+        <Image
+          src={data.image}
+          alt={data.title[locale]}
+          class="h-full w-full object-cover"
+          widths={[400, 800]}
+          sizes="(min-width: 760px) 50vw, 100vw"
+        />
+      ) : (
+        <>
+          <div
+            data-parallax="0.04"
+            class="absolute -inset-[8%] [background-image:repeating-linear-gradient(135deg,#22201D_0_10px,#1B1917_10px_20px)]"
+          />
+          <div class="absolute inset-0 grid place-items-center p-5 text-center">
+            <div class="font-mono text-[11px] uppercase tracking-[.24em] text-muted-soft">{t.noPreview}</div>
+          </div>
+        </>
+      )
+    }
+    <div class="absolute left-0 top-0 bg-volt px-3 py-2 font-mono text-[11px] tracking-[.2em] text-ink">{number}</div>
+  </a>
+  <div class="grid gap-[18px]">
+    <h3 class="m-0 font-display text-[clamp(26px,3.4vw,40px)] leading-none tracking-[-.035em]">{data.title[locale]}</h3>
+    <p class="m-0 text-base leading-[1.6] text-muted-body [text-wrap:pretty]">{data.description[locale]}</p>
+    <div class="flex flex-wrap gap-2">
+      {data.stack.map((tech) => <Tag>{tech}</Tag>)}
+    </div>
+    <a
+      data-magnetic
+      href={data.link}
+      target="_blank"
+      rel="noopener"
+      class="justify-self-start border-b border-border-hover pb-[6px] font-mono text-xs uppercase tracking-[.2em] text-paper transition-colors hover:border-ember"
+    >
+      {t.visit}
+    </a>
+  </div>
+</article>

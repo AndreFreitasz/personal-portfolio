@@ -1,0 +1,43 @@
+---
+import { social } from '../../data/social';
+import type { Locale } from '../../locales/locales';
+import { useTranslations } from '../../locales/utils';
+import SocialIcon from '../ui/SocialIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section id="contato" data-reveal class="border-t border-border py-[110px] pb-[120px]">
+  <div data-anim="left" class="mb-7 font-mono text-[11px] uppercase tracking-[.34em] text-volt">
+    06 — {t.contactLabel}
+  </div>
+  <h2
+    data-line
+    class="mb-[30px] overflow-hidden font-display text-[clamp(38px,7.6vw,104px)] leading-[.9] tracking-[-.045em]"
+  >
+    <span class="block">{t.contactTitle}</span>
+  </h2>
+  <p
+    data-anim="up"
+    class="mb-10 max-w-[560px] text-[clamp(17px,2vw,20px)] leading-[1.55] text-muted-body [text-wrap:pretty]"
+  >
+    {t.contactSub}
+  </p>
+  <div class="flex flex-wrap items-center gap-[14px]">
+    {social.map((link) => <SocialIcon link={link} />)}
+    <a
+      data-magnetic
+      data-anim="pop"
+      href="/curriculo.pdf"
+      target="_blank"
+      rel="noopener"
+      class="flex h-[62px] items-center bg-volt px-6 font-mono text-xs uppercase tracking-[.2em] text-ink transition-colors hover:bg-ember"
+    >
+      {t.ctaCv}
+    </a>
+  </div>
+</section>

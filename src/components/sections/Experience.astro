@@ -1,0 +1,35 @@
+---
+import { experience } from '../../data/experience';
+import type { Locale } from '../../locales/locales';
+import { useTranslations } from '../../locales/utils';
+import SectionLabel from '../ui/SectionLabel.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section id="experiencia" data-reveal class="border-t border-border py-24">
+  <SectionLabel index="02" title={t.expTitle} />
+  <div class="grid gap-[2px]">
+    {
+      experience.map((job) => (
+        <article
+          data-anim="auto"
+          class="grid grid-cols-1 gap-[26px] border-l-2 border-border-strong bg-graphite p-[34px] transition-colors duration-[250ms] hover:border-volt hover:bg-graphite-2 sm:[grid-template-columns:minmax(0,200px)_minmax(0,1fr)]"
+        >
+          <div class="grid gap-2">
+            <div class="font-mono text-[11px] uppercase tracking-[.22em] text-volt">{job.period[locale]}</div>
+            <div class="font-display text-xl tracking-[-.02em]">{job.company}</div>
+          </div>
+          <div class="grid gap-[10px]">
+            <div class="text-[17px] font-semibold text-paper">{job.role[locale]}</div>
+            <p class="m-0 text-[15px] leading-[1.6] text-muted-body [text-wrap:pretty]">{job.description[locale]}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

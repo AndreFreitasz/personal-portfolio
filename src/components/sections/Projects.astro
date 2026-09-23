@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../../locales/locales';
+import { useTranslations } from '../../locales/utils';
+import SectionLabel from '../ui/SectionLabel.astro';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  locale: Locale;
+  projects: CollectionEntry<'projects'>[];
+}
+const { locale, projects } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section id="projetos" data-reveal class="border-t border-border py-24">
+  <SectionLabel index="03" title={t.projTitle} />
+  <div class="grid gap-14">
+    {
+      projects.map((project, i) => (
+        <ProjectCard locale={locale} project={project} number={String(i + 1).padStart(2, '0')} />
+      ))
+    }
+  </div>
+</section>

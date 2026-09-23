@@ -1,0 +1,18 @@
+---
+import { practices, stack } from '../../data/stack';
+import type { Locale } from '../../locales/locales';
+import Marquee from '../motion/Marquee.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const practicesLocalized = practices.map((p) => p[locale]);
+---
+
+<section aria-label="Stack" class="overflow-hidden border-t border-border py-11">
+  <div class="grid gap-4">
+    <Marquee items={stack} animation="afMarquee" durationSeconds={42} variant="chip" />
+    <Marquee items={practicesLocalized} animation="afMarqueeRev" durationSeconds={56} variant="plain" />
+  </div>
+</section>

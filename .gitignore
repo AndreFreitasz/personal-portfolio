@@ -1,4 +1,7 @@
 .superpowers/
+.claude/
+docs/
+design-reference/
 node_modules/
 dist/
 .astro/

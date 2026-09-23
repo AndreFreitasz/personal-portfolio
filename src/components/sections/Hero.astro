@@ -1,0 +1,42 @@
+---
+import type { Locale } from '../../locales/locales';
+import { useTranslations } from '../../locales/utils';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section data-reveal class="flex min-h-[82vh] flex-col justify-center py-[88px] pb-[72px]">
+  <div data-anim="left" class="mb-[30px] font-mono text-[11px] uppercase tracking-[.34em] text-volt">André Freitas</div>
+  <h1 class="mb-8 font-display text-[clamp(44px,9.4vw,132px)] leading-[.86] tracking-[-.05em]">
+    <span data-line class="block overflow-hidden"><span class="block">{t.h1a}</span></span>
+    <span data-line class="block overflow-hidden"><span class="block text-volt">{t.h1b}</span></span>
+  </h1>
+  <p
+    data-anim="up"
+    class="mb-[38px] max-w-[600px] text-[clamp(17px,2vw,21px)] leading-[1.55] text-muted-body [text-wrap:pretty]"
+  >
+    {t.heroSub}
+  </p>
+  <div data-anim="up" class="flex flex-wrap gap-3">
+    <a
+      data-magnetic
+      href="#projetos"
+      class="bg-volt px-6 py-[17px] font-mono text-xs uppercase tracking-[.2em] text-ink transition-colors hover:bg-ember"
+    >
+      {t.ctaWork}
+    </a>
+    <a
+      data-magnetic
+      href="/curriculo.pdf"
+      target="_blank"
+      rel="noopener"
+      class="border border-border-hover px-6 py-[17px] font-mono text-xs uppercase tracking-[.2em] text-paper transition-colors hover:border-volt hover:text-volt"
+    >
+      {t.ctaCv}
+    </a>
+  </div>
+</section>

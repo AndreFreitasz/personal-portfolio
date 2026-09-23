@@ -1,0 +1,13 @@
+---
+interface Props {
+  anim?: string;
+}
+const { anim = 'pop' } = Astro.props;
+---
+
+<span
+  data-anim={anim}
+  class="border border-border-strong px-[11px] py-[7px] font-mono text-[11px] tracking-[.1em] text-muted-soft"
+>
+  <slot />
+</span>

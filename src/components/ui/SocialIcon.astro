@@ -1,0 +1,42 @@
+---
+import type { SocialLink } from '../../data/social';
+
+interface Props {
+  link: SocialLink;
+}
+const { link } = Astro.props;
+
+const icons: Record<SocialLink['id'], string> = {
+  instagram:
+    '<rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle>',
+  linkedin:
+    '<rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="8" y1="11" x2="8" y2="17"></line><circle cx="8" cy="7.6" r="1.1" fill="currentColor" stroke="none"></circle><path d="M12 17v-3.4a2.6 2.6 0 0 1 5.2 0V17"></path>',
+  github:
+    '<path d="M9 19.3c-4 1.2-4-2.1-5.6-2.5m11.2 5v-3.5c0-1 .1-1.4-.5-2 2.3-.26 4.4-1.13 4.4-5a3.9 3.9 0 0 0-1.1-2.7 3.6 3.6 0 0 0-.1-2.75s-1.2-.35-3.9 1.5a9.3 9.3 0 0 0-5 0C5.7 5.05 4.5 5.4 4.5 5.4a3.6 3.6 0 0 0-.1 2.75A3.9 3.9 0 0 0 3.3 10.9c0 3.84 2.1 4.71 4.4 5-.6.6-.6 1.2-.5 2v3.5"></path>',
+  whatsapp:
+    '<path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.45L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6z"></path><path d="M9 9.2c0 3.1 2.7 5.8 5.8 5.8.5 0 1-.4 1-.9v-.9l-1.9-.7-.9 1a6.4 6.4 0 0 1-2.6-2.6l1-.9-.7-1.9h-.9c-.5 0-.9.5-.9 1.1z"></path>',
+};
+---
+
+<a
+  data-magnetic
+  data-anim="pop"
+  href={link.href}
+  target="_blank"
+  rel="noopener"
+  aria-label={link.label}
+  class="grid h-[62px] w-[62px] place-items-center border border-border-hover text-paper transition-colors hover:border-volt hover:bg-volt hover:text-ink"
+>
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    set:html={icons[link.id]}
+  />
+</a>
