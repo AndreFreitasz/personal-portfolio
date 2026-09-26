@@ -3,7 +3,7 @@ import { projectSchema } from './projectSchema';
 
 const valid = {
   order: 1,
-  title: { pt: 'SaveMoney', en: 'SaveMoney' },
+  title: { pt: 'MiranteFinanceiro', en: 'MiranteFinanceiro' },
   description: {
     pt: 'Gestão de finanças pessoais.',
     en: 'Personal finance manager.',
@@ -36,6 +36,6 @@ describe('projectSchema', () => {
   });
 
   it('rejects a title missing one of the two locales', () => {
-    expect(() => projectSchema.parse({ ...valid, title: { pt: 'SaveMoney' } })).toThrow();
+    expect(() => projectSchema.parse({ ...valid, title: { pt: 'MiranteFinanceiro' } })).toThrow();
   });
 });

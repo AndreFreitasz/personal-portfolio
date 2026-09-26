@@ -13,8 +13,8 @@ export const experience: ExperienceEntry[] = [
     company: 'KaBuM!',
     role: { pt: 'Software Engineer', en: 'Software Engineer' },
     description: {
-      pt: 'Responsável pelos sistemas de comunicação com o cliente — mensageria, integrações e confiabilidade da entrega.',
-      en: 'Owner of customer communication systems — messaging, integrations and delivery reliability.',
+      pt: 'Atuo nos sistemas de comunicação com o cliente, incluindo WhatsApp e e-mail, além do fluxo de devoluções de pedidos e de outros projetos internos, sempre com atenção à confiabilidade da entrega em um ambiente de alto volume de operações.',
+      en: 'I work on the customer communication systems, covering WhatsApp and email, as well as the order returns flow and other internal projects, always with close attention to delivery reliability in a high-volume operating environment.',
     },
   },
   {
@@ -22,8 +22,8 @@ export const experience: ExperienceEntry[] = [
     company: 'RC Soluções',
     role: { pt: 'Estágio · Software Developer', en: 'Intern · Software Developer' },
     description: {
-      pt: 'Desenvolvimento front-end em React nos projetos da empresa, da interface à integração com API.',
-      en: 'Front-end development in React across company projects, from UI to API integration.',
+      pt: 'Responsável pelo front-end dos projetos da empresa, com entregas para companhias de grande porte do setor de mineração e para a Prefeitura de Piracicaba',
+      en: 'Responsible for the front-end of the company projects, delivering for large mining companies and for the Piracicaba city government.',
     },
   },
 ];
