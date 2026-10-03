@@ -23,6 +23,7 @@ export default function CustomCursor() {
       y = e.clientY;
     };
     window.addEventListener('mousemove', onMove, { passive: true });
+    document.documentElement.classList.add('af-custom-cursor');
 
     let rafId = 0;
     const loop = () => {
@@ -37,6 +38,7 @@ export default function CustomCursor() {
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener('mousemove', onMove);
+      document.documentElement.classList.remove('af-custom-cursor');
     };
   }, []);
 
@@ -45,12 +47,14 @@ export default function CustomCursor() {
       <div
         id="afCursor"
         ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[130] h-[7px] w-[7px] -translate-x-[100px] -translate-y-[100px] rounded-full bg-volt"
+        style={{ transform: 'translate3d(-100px,-100px,0)' }}
+        className="pointer-events-none fixed left-0 top-0 z-[130] h-[7px] w-[7px] rounded-full bg-volt"
       />
       <div
         id="afRing"
         ref={ringRef}
-        className="pointer-events-none fixed left-0 top-0 z-[130] h-8 w-8 -translate-x-[100px] -translate-y-[100px] rounded-full border border-volt/45 transition-[width,height] duration-200"
+        style={{ transform: 'translate3d(-100px,-100px,0)' }}
+        className="pointer-events-none fixed left-0 top-0 z-[130] h-8 w-8 rounded-full border border-volt/45 transition-[width,height] duration-200"
       />
     </>
   );
