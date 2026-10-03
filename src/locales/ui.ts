@@ -48,7 +48,6 @@ export const ui: Record<Locale, UiDictionary> = {
     contactLabel: 'Contato',
     contactTitle: 'VAMOS CONSTRUIR ALGO JUNTOS',
     contactSub: 'Aberto a oportunidades como engenheiro de software. Chama no LinkedIn ou dá uma olhada no currículo.',
-    footer: 'Feito à mão',
   },
   en: {
     langLabel: 'PT',
