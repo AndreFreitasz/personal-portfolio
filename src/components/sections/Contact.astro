@@ -29,15 +29,5 @@ const t = useTranslations(locale);
   </p>
   <div class="flex flex-wrap items-center gap-[14px]">
     {social.map((link) => <SocialIcon link={link} />)}
-    <a
-      data-magnetic
-      data-anim="pop"
-      href="/curriculo.pdf"
-      target="_blank"
-      rel="noopener"
-      class="flex h-[62px] items-center bg-volt px-6 font-mono text-xs uppercase tracking-[.2em] text-ink transition-colors hover:bg-ember"
-    >
-      {t.ctaCv}
-    </a>
   </div>
 </section>

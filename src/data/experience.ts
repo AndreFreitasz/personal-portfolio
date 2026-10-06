@@ -20,7 +20,7 @@ export const experience: ExperienceEntry[] = [
   {
     period: { pt: 'Anterior', en: 'Previous' },
     company: 'RC Soluções',
-    role: { pt: 'Estágio · Software Developer', en: 'Intern · Software Developer' },
+    role: { pt: 'Frontend Developer', en: 'Frontend Developer' },
     description: {
       pt: 'Responsável pelo front-end dos projetos da empresa, com entregas para companhias de grande porte do setor de mineração e para a Prefeitura de Piracicaba',
       en: 'Responsible for the front-end of the company projects, delivering for large mining companies and for the Piracicaba city government.',

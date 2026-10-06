@@ -1,3 +1,4 @@
+import { bindHeaderHide } from './header-hide';
 import { bindMagnetic } from './magnetic';
 import { bindParallax } from './parallax';
 import { setupReveal } from './reveal';
@@ -8,6 +9,6 @@ let cleanup: (() => void) | null = null;
 // do ClientRouter — um único listener cobre os dois casos.
 document.addEventListener('astro:page-load', () => {
   cleanup?.();
-  const cleanups = [bindMagnetic(), bindParallax(), setupReveal()];
+  const cleanups = [bindHeaderHide(), bindMagnetic(), bindParallax(), setupReveal()];
   cleanup = () => cleanups.forEach((fn) => fn());
 });

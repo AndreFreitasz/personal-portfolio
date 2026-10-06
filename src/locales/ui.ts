@@ -10,7 +10,6 @@ export interface UiDictionary {
   h1b: string;
   heroSub: string;
   ctaWork: string;
-  ctaCv: string;
   visit: string;
   aboutTitle: string;
   about1: string;
@@ -35,7 +34,6 @@ export const ui: Record<Locale, UiDictionary> = {
     h1b: 'DE SOFTWARE',
     heroSub: 'Desenvolvo sistemas e interfaces com foco em performance, escalabilidade e experiência do usuário.',
     ctaWork: 'Ver projetos',
-    ctaCv: 'Currículo',
     visit: 'Acessar projeto',
     aboutTitle: 'Sobre',
     about1:
@@ -47,7 +45,7 @@ export const ui: Record<Locale, UiDictionary> = {
     noPreview: 'Preview em breve',
     contactLabel: 'Contato',
     contactTitle: 'VAMOS CONSTRUIR ALGO JUNTOS',
-    contactSub: 'Aberto a oportunidades como engenheiro de software. Chama no LinkedIn ou dá uma olhada no currículo.',
+    contactSub: 'Aberto a oportunidades como engenheiro de software. Entre em contato pelo LinkedIn ou pelo e-mail.',
   },
   en: {
     langLabel: 'PT',
@@ -60,7 +58,6 @@ export const ui: Record<Locale, UiDictionary> = {
     heroSub:
       'I develop systems and interfaces focused on performance, scalability and user experience, from back-end to front-end.',
     ctaWork: 'See work',
-    ctaCv: 'Resume',
     visit: 'Visit project',
     aboutTitle: 'About',
     about1:
@@ -72,7 +69,7 @@ export const ui: Record<Locale, UiDictionary> = {
     noPreview: 'Preview coming soon',
     contactLabel: 'Contact',
     contactTitle: "LET'S BUILD SOMETHING",
-    contactSub: 'Open to software engineering opportunities. Reach out on LinkedIn or take a look at my resume.',
+    contactSub: 'Open to software engineering opportunities. Reach out on LinkedIn or by email.',
     footer: 'Handmade',
   },
 };

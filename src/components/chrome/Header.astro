@@ -10,7 +10,11 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<header class="sticky top-0 z-[100] border-b border-border bg-ink/86 backdrop-blur-md">
+<header
+  data-header
+  data-hidden="false"
+  class="sticky top-0 z-[100] border-b border-border bg-ink/86 backdrop-blur-md transition-transform duration-300 ease-out will-change-transform data-[hidden=true]:-translate-y-full motion-reduce:transition-none"
+>
   <div class="mx-auto flex max-w-[1180px] items-center justify-between gap-[18px] px-7 py-4">
     <a href="#top" aria-label="André Freitas" class="flex items-center gap-3">
       <span
