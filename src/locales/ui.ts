@@ -45,7 +45,7 @@ export const ui: Record<Locale, UiDictionary> = {
     noPreview: 'Preview em breve',
     contactLabel: 'Contato',
     contactTitle: 'VAMOS CONSTRUIR ALGO JUNTOS',
-    contactSub: 'Aberto a oportunidades como engenheiro de software. Entre em contato pelo LinkedIn ou pelo e-mail.',
+    contactSub: 'Entre em contato pelo LinkedIn ou pelo e-mail.',
   },
   en: {
     langLabel: 'PT',
@@ -69,7 +69,7 @@ export const ui: Record<Locale, UiDictionary> = {
     noPreview: 'Preview coming soon',
     contactLabel: 'Contact',
     contactTitle: "LET'S BUILD SOMETHING",
-    contactSub: 'Open to software engineering opportunities. Reach out on LinkedIn or by email.',
+    contactSub: 'Reach out on LinkedIn or by email.',
     footer: 'Handmade',
   },
 };
