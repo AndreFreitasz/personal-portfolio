@@ -5,6 +5,5 @@ design-reference/
 node_modules/
 dist/
 .astro/
-.vercel/
 .env
 .DS_Store

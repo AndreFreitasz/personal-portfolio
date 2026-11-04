@@ -9,7 +9,7 @@ const valid = {
     en: 'Personal finance manager.',
   },
   stack: ['React', 'NestJS'],
-  link: 'https://personal-management-jade.vercel.app',
+  link: 'https://mirantefinanceiro.online',
 };
 
 describe('projectSchema', () => {

@@ -7,7 +7,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...astroPlugin.configs.recommended,
   {
-    ignores: ['dist/**', '.astro/**', '.vercel/**', 'design-reference/**'],
+    ignores: ['dist/**', '.astro/**', 'design-reference/**'],
   },
   {
     // eslint-plugin-astro auto-detects @typescript-eslint/parser for frontmatter

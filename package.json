@@ -16,7 +16,6 @@
   "dependencies": {
     "@astrojs/mdx": "^4.0.0",
     "@astrojs/react": "^4.0.0",
-    "@astrojs/vercel": "^8.0.0",
     "@fontsource/archivo": "^5.0.0",
     "@fontsource/archivo-black": "^5.0.0",
     "@fontsource/jetbrains-mono": "^5.0.0",
